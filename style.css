@@ -17,8 +17,18 @@ body {
     margin-top: 20px;
 }
 .game-content {
-    text-align: center;
-    margin-top: 20px;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    border-radius: inherit;
+}
+
+.game-content::-webkit-scrollbar {
+    display: none;
 }
 
 .game {
@@ -31,14 +41,52 @@ body {
     margin-top: 100px;
 }
 
-#cenario1 { 
+#cenario1,
+#cenario2,
+#cenario3,
+#cenario4 {
+    flex: 0 0 100%;
     width: 100%;
     height: 100%;
-    background-image: url('cenario1.jpg');
-    background-size: cover;
-    background-position: center;
-    border-radius: 40px;
+    object-fit: cover;
+}
 
+.game {
+    position: relative;
+    overflow: hidden;
+}
+
+.scenario-button {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    width: 48px;
+    height: 64px;
+    transform: translateY(-50%);
+    border: 0;
+    background: rgb(0 0 0 / 65%);
+    color: #ffffff;
+    font-size: 40px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.scenario-previous {
+    left: 12px;
+}
+
+.scenario-next {
+    right: 12px;
+}
+
+.scenario-button:disabled {
+    opacity: 0.35;
+    cursor: default;
+}
+
+.scenario-button:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
 }
 
 .titulo {
