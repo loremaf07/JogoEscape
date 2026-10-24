@@ -1,0 +1,181 @@
+body {
+    background-color: #000000;
+}
+
+.inicio {
+    width: 1000px;
+    height: 600px;
+    margin: 0 auto;
+    border-radius: 40px;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    margin-top: 100px;
+}
+
+.game-header {
+    text-align: center;
+    margin-top: 20px;
+}
+.game-content {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    border-radius: inherit;
+    
+    
+}
+
+
+
+
+.game-content::-webkit-scrollbar {
+    display: none;
+}
+
+.game {
+    width: 1000px;
+    height: 600px;
+    margin: 0 auto;
+    border-radius: 40px;
+    background-color: #000000;
+    border: 1px solid #000000;
+    margin-top: 100px;
+}
+
+.scenario-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#cenario1,
+#cenario2,
+#cenario3,
+#cenario4 {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.sticker {
+    position: absolute;
+    z-index: 1;
+    top: 30%;
+    left: 11%;
+    width: 200px;
+    height: 200px;
+}
+
+
+
+.game {
+    position: relative;
+    overflow: hidden;
+}
+
+.scenario-button {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    width: 48px;
+    height: 64px;
+    transform: translateY(-50%);
+    border: 0;
+    background: rgb(0 0 0 / 65%);
+    color: #ffffff;
+    font-size: 40px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.scenario-previous {
+    left: 12px;
+}
+
+.scenario-next {
+    right: 12px;
+}
+
+.scenario-button:disabled {
+    opacity: 0.35;
+    cursor: default;
+}
+
+.scenario-button:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+}
+
+.scenario-square {
+    position: absolute;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    background-color: #1687ff6b;
+}
+
+.puzzle_A1 {
+    top: 10%;
+    left: 11%;
+    width: 220px;
+    height: 140px;
+}
+
+.puzzle_B1 {
+    top: 36%;
+    right: 2%;
+    width: 220px;
+    height: 140px;
+}
+
+.puzzle_C1 {
+    bottom: 23%;
+    left: 43%;
+    width: 217px;
+    height: 171px;
+}
+
+.puzzle_D1 {
+    top: 55%;
+    right: 51%;
+    width: 110px;
+    height: 100px;
+}
+
+.titulo {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.start-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 70px;
+    background-color: #2318c6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
