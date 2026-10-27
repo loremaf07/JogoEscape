@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: blue;
+        }
+        @media print{
+            h1{
+                display: none;
+            }
+            
+        }
+
+        @media(max-width: 600px){
+            body{
+            background-color: yellow;
+        }
+        }
+
+        @media(prefers-color-scheme: dark){
+
+        }   
+        :root{
+            --bg--color: red;
+            --cor--texto: green;
+        }     
+        p{
+            background-color: var(--bg--color);
+            color: var(--cor--texto);
+        }
+    </style>
+</head>
+<body>
+    <h2>esquilo</h2>
+    <p>Este é um parágrafo de exemplo.</p>
+
+</body>
+</html>

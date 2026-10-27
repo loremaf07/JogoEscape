@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game">
+        
+        <div class="game-content" tabindex="0" aria-label="Cenários do jogo">
+            <!--A-->
+            <div class="scenario-slide">
+                <img id="cenario1" src="images/cenario1.png" alt="Imagem do jogo">
+                <div class="scenario-square puzzle_A1" aria-hidden="true" onclick="darZoomNoObjeto('0%', '5%', 0)"></div>
+            </div>
+            <!--B-->
+            <div class="scenario-slide">
+                <img id="cenario2" src="images/cenario2.png" alt="Imagem do jogo">
+                <div class="scenario-square puzzle_B1" aria-hidden="true" onclick="darZoomNoObjeto('100%', '50%', 1)"></div>
+            </div>
+            <!--C-->
+            <div class="scenario-slide">
+                <img id="cenario3" src="images/cenario3.png" alt="Imagem do jogo">
+                <div class="scenario-square puzzle_C1" aria-hidden="true" onclick="darZoomNoObjeto('55%', '70%', 2)"></div>
+            </div>
+            <!--D-->
+            <div class="scenario-slide">
+                <img id="cenario4" src="images/cenario4.png" alt="Imagem do jogo">
+                <div class="scenario-square puzzle_D1" aria-hidden="true" onclick="darZoomNoObjeto('40%', '70%', 3)"></div>
+            </div>
+        </div>
+        <button class="scenario-button scenario-previous" type="button" aria-label="Cenário anterior">&#8249;</button>
+        <button class="scenario-button scenario-next" type="button" aria-label="Próximo cenário">&#8250;</button>
+
+       
+        
+        
+    </div>
+    <script src="scripts/game.js"></script>
+</body>
+</html>
