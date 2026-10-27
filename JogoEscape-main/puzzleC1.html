@@ -5,14 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+
+    canvas {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      z-index: 1;
+      top: 70px;
+      left: 270px;
+      max-width: 100%;
+      background-color: rgba(11, 226, 226, 0);
+      
+    }
+
+    button {
+      position: absolute;
+      padding: 12px 20px;
+      z-index: 1;
+      top: 20px;
+      width: 50px;
+      height: 150px;
+      margin: 10px;
+      cursor: pointer;
+      opacity: 0;
+    }
+  </style>
 </head>
 <body>
     <div class="game">
         
         <img id="cenario1" src="images/puzzleC1/puzzleC1_background.png" alt="Imagem do jogo" oncontextmenu="return false;">
         
+        <canvas id="canvas" width="800" height="300"></canvas>
+        <div>
+        <button style="top: 410px; left: 250px;" onclick="aumentar(0)">Onda 1</button>
+        <button style="top: 410px; left: 360px;"onclick="aumentar(1)">Onda 2</button>
+        <button style="top: 410px; left: 460px;" onclick="aumentar(2)">Onda 3</button>
+        </div>
+
         <button class="scenario-button backgame" type="button" aria-label="Cenário anterior" onclick="backGame()">&#8249;</button>
     </div>
-    <script src="scripts/puzzles.js"></script>
+    <script src="scripts/puzzleC1.js. "></script>
 </body>
 </html>
