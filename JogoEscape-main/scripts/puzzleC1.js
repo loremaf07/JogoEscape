@@ -1,46 +1,82 @@
 const canvas = document.getElementById("canvas");
-    const ctx = canvas.getContext("2d");
+const ctx = canvas.getContext("2d");
 
-    // Altura individual das três ondas
-    const alturas = [0, 0, 0];
+const botoes = [
+  document.getElementById("btn1"),
+  document.getElementById("btn2"),
+  document.getElementById("btn3")
+];
 
-    // Posição horizontal de cada onda
-    const centros = [150, 400, 650];
+const imagensBotoes = [
+  document.getElementById("btn1img"),
+  document.getElementById("btn2img"),
+  document.getElementById("btn3img")
+];
 
-    const largura = 65;
-    const linhaBase = 150;
+const alturas = [0, 0, 0];
+const centros = [150, 400, 650];
+const largura = 65;
+const linhaBase = 150;
 
-    function desenhar() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+function desenhar() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.beginPath();
 
-      ctx.beginPath();
+  for (let x = 0; x <= canvas.width; x++) {
+    let y = linhaBase;
 
-      for (let x = 0; x <= canvas.width; x++) {
-        let y = linhaBase;
-
-        for (let i = 0; i < 3; i++) {
-          let distancia = (x - centros[i]) / largura;
-
-          y -= alturas[i] * Math.exp(-distancia * distancia);
-          // y += alturas[i] * Math.exp(-distancia * distancia);
-          // DIMINUIR O VALE!!!!!!!!!!!!!!!!!!!
-        }
-
-        if (x === 0) {
-          ctx.moveTo(x, y);
-        } else {
-          ctx.lineTo(x, y);
-        }
-      }
-
-      ctx.strokeStyle = "#bcf8c2";
-      ctx.lineWidth = 3;
-      ctx.stroke();
+    for (let i = 0; i < alturas.length; i++) {
+      const distancia = (x - centros[i]) / largura;
+      y -= alturas[i] * Math.exp(-distancia * distancia);
     }
 
-    function aumentar(indice) {
-      alturas[indice] = Math.min(180, alturas[indice] + 20);
-      desenhar();
+    if (x === 0) {
+      ctx.moveTo(x, y);
+    } else {
+      ctx.lineTo(x, y);
     }
+  }
 
-    desenhar();
+  ctx.strokeStyle = "#bcf8c2";
+  ctx.lineWidth = 3;
+  ctx.stroke();
+}
+
+function ajustarOnda(indice, direcao) {
+  alturas[indice] = Math.max(0, Math.min(180, alturas[indice] + direcao * 20));
+  desenhar();
+}
+
+function lidarComClique(indice, event) {
+  const botao = botoes[indice];
+  const imagem = imagensBotoes[indice];
+  const cliqueY = event.clientY - botao.getBoundingClientRect().top;
+  const alturaBotao = botao.getBoundingClientRect().height;
+  const posicaoAtual = parseInt(imagem.style.top, 10);
+
+  if (cliqueY < alturaBotao / 3) {
+    if (imagem.style.top != "405px") {
+      imagem.style.top = `${Math.max(405, posicaoAtual - 25)}px`;
+      ajustarOnda(indice, 1);
+    }
+    
+  } else if (cliqueY >= (alturaBotao / 3) * 2) {
+    if (imagem.style.top != "505px") {
+      imagem.style.top = `${Math.min(505, posicaoAtual + 25)}px`;
+      ajustarOnda(indice, -1);
+    }
+    
+  }
+}
+
+botoes.forEach((botao, indice) => {
+  botao.addEventListener("click", event => lidarComClique(indice, event));
+});
+
+// Volta para a página anterior
+function backGame() {
+    window.history.back();
+}
+
+
+desenhar();
