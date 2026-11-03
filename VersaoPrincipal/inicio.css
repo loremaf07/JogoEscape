@@ -54,12 +54,12 @@ h1 {
     font-family: Georgia, 'Times New Roman', serif;
 }
 
+.story-button,
 .start-button {
     display: block;
     margin: 20px auto;
     padding: 16px 32px;
     font-size: 1rem;
-    margin-top: 70px;
     background: linear-gradient(180deg, #ad7a3f, #6a4424 55%, #3c2615);
     color: #f8efdb;
     border: 3px solid #f2d390;
@@ -73,12 +73,22 @@ h1 {
     z-index: 1;
 }
 
+.story-button {
+    margin-top: 24px;
+}
+
+.start-button {
+    margin-top: 20px;
+}
+
+.story-button:hover,
 .start-button:hover {
     transform: translateY(-2px) scale(1.02);
     filter: brightness(1.08);
     box-shadow: 0 14px 30px rgba(0, 0, 0, 0.38), inset 0 2px 0 rgba(255,255,255,0.2);
 }
 
+.story-button:active,
 .start-button:active {
     transform: translateY(0);
 }
@@ -114,6 +124,59 @@ h1 {
     width: 24px;
     height: 24px;
     fill: #f8efdb;
+}
+
+@media (min-width: 769px) {
+    body {
+        padding: 0;
+    }
+
+    .inicio {
+        width: min(90vw, 900px);
+        min-height: 72vh;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        display: block;
+        padding: 20px 12px;
+        background-attachment: scroll;
+    }
+
+    .inicio {
+        width: 100%;
+        min-height: auto;
+        padding: 28px 18px 20px;
+        border-width: 8px;
+        border-radius: 24px;
+        margin: 0 auto;
+    }
+
+    .inicio::before {
+        inset: 10px;
+    }
+
+    h1 {
+        letter-spacing: 0.05em;
+    }
+
+    .story-button,
+    .start-button {
+        width: min(100%, 260px);
+        padding: 14px 18px;
+        font-size: 0.9rem;
+    }
+
+    .social-links {
+        gap: 12px;
+        margin-top: 22px;
+    }
+
+    .social-links a {
+        width: 46px;
+        height: 46px;
+    }
 }
 
 @keyframes pulse {

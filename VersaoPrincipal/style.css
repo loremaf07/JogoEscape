@@ -270,6 +270,76 @@ body {
     animation: pulse 1s infinite;
 }
 
+@media (min-width: 769px) {
+    .inicio,
+    .game {
+        width: 1000px;
+        height: 600px;
+        margin-top: 100px;
+    }
+
+    .game-content {
+        height: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 20px 12px;
+        background-color: #000;
+    }
+
+    .inicio,
+    .game {
+        width: 100%;
+        max-width: 100%;
+        min-height: 420px;
+        height: auto;
+        margin: 20px auto 0;
+        border-radius: 24px;
+    }
+
+    .game-content {
+        min-height: 420px;
+        height: 420px;
+    }
+
+    .scenario-slide {
+        min-width: 100%;
+    }
+
+    .scenario-button {
+        width: 40px;
+        height: 54px;
+        font-size: 30px;
+    }
+
+    #moldura,
+    .flores,
+    .sticker,
+    .engrenagem {
+        width: 140px;
+        height: 120px;
+    }
+
+    .puzzle_A1,
+    .puzzle_B1,
+    .puzzle_C1,
+    .puzzle_D1 {
+        width: 26vw;
+        max-width: 180px;
+        height: auto;
+    }
+
+    .tabuleiro {
+        top: 16%;
+        left: 50%;
+        width: min(72vw, 300px);
+        height: min(72vw, 300px);
+        transform: translateX(-50%);
+    }
+}
+
 @keyframes pulse {
     0% {
         transform: scale(1);
