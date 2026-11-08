@@ -1,0 +1,67 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+    canvas {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      z-index: 1;
+      top: 70px;
+      left: 270px;
+      max-width: 100%;
+      background-color: rgba(11, 226, 226, 0);
+      
+    }
+
+    .botroes button {
+      position: absolute;
+      padding: 12px 20px;
+      z-index: 2;
+      top: 20px;
+      width: 50px;
+      height: 150px;
+      margin: 10px;
+      cursor: pointer;
+      opacity: 0;
+    }
+    .botaoc1 {
+      position: absolute;
+      padding: 12px 20px;
+      z-index: 1;
+      top: 30px;
+      width: 40px;
+      height: 35px;
+      margin: 10px;
+      cursor: pointer;
+      
+    }
+  </style>
+</head>
+<body>
+    <div class="game">
+        
+        <img id="cenario1" src="images/puzzleC1/puzzleC1_background (1).png" alt="Imagem do jogo" oncontextmenu="return false;">
+        
+        <canvas id="canvas" width="800" height="300"></canvas>
+        <div class="botroes">
+         
+        <button id="btn1" style="top: 410px; left: 250px;">Onda 1</button>
+        <button id="btn2" style="top: 410px; left: 360px;">Onda 2</button>
+        <button id="btn3" style="top: 410px; left: 460px;">Onda 3</button>
+
+        <img id="btn1img" class="botaoc1" style="top: 505px; left: 235px;" src="images/puzzleC1/botaoC1.png" alt="botao">
+        <img id="btn2img" class="botaoc1" style="top: 505px; left: 340px;" src="images/puzzleC1/botaoC1.png" alt="botao">
+        <img id="btn3img" class="botaoc1" style="top: 505px; left: 440px;" src="images/puzzleC1/botaoC1.png" alt="botao">
+        
+        </div>
+
+        <button class="scenario-button backgame" type="button" aria-label="Cenário anterior" onclick="backGame()">&#8249;</button>
+    </div>
+    <script src="scripts/puzzleC1.js"></script>
+</body>
+</html>
