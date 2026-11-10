@@ -84,4 +84,9 @@ function ativarPuzzle() {
     alert("Funcionou!");
 }
 
+function abrirInventario() {
+    const inventario = document.querySelector(".inventario_aberto");
+    inventario.classList.add("abrindoinventario");
+}
+
 showScenario(0);
