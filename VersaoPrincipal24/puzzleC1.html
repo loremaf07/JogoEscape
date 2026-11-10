@@ -43,6 +43,38 @@
       cursor: pointer;
       
     }
+
+    .chavePrata {
+      position: absolute;
+      width: 100px;
+      height: 150px;
+      z-index: 2;
+      top: 25%;
+      left: 60%;
+      
+    }
+
+    .coletar {
+      animation: coletar 3s ease-in-out forwards;
+    }
+
+    @keyframes coletar {
+      0% {
+         transform: translateY(0); 
+      }
+
+      50% {
+         top: 5%;
+         left: 90%;
+      }
+
+      100% {
+         transform: translateY(-20px); 
+         top: 1200px;
+        
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -51,6 +83,7 @@
         <img id="cenario1" src="images/puzzleC1/puzzleC1_background (1).png" alt="Imagem do jogo" oncontextmenu="return false;">
         
         <div id="preto" class="conquista">
+          <img id="chavePrata" class="chavePrata" src="images/chavePrata.png" alt="Chave Prata">
           <p class="liberado">CHAVE DESBLOQUEADA</p>
         </div>
 

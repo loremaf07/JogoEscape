@@ -3,6 +3,8 @@ const ctx = canvas.getContext("2d");
 
 const telapreta = document.getElementById("preto");
 
+const chave = document.getElementById("chavePrata");
+
 const botoes = [
   document.getElementById("btn1"),
   document.getElementById("btn2"),
@@ -73,6 +75,12 @@ function lidarComClique(indice, event) {
   if (alturas[0] == 20 && alturas[1] == 80 && alturas[2] == 40) {
       setTimeout(() => {
         telapreta.classList.add('visivel');
+        setTimeout(() => {
+          chave.classList.add('coletar');
+          //telapreta.style.opacity = "100%";
+        
+        }, 600);
+        //chave.classList.add('coletar');
         //telapreta.style.opacity = "100%";
         
       }, 500);

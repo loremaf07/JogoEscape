@@ -230,6 +230,22 @@ body {
     transition: opacity 4.4 ease;
 }
 
+
+.chaveVerde {
+      position: absolute;
+      width: 100px;
+      height: 150px;
+      z-index: 2;
+      opacity: 0;
+      top: 25%;
+      left: 50%;
+      
+}
+
+.coletar {
+      animation: coletar 3s ease-in-out forwards;
+}
+
 .visivel {
   animation: clarear 1.5s ease-in forwards;                  /* Estado final (100% visível) */
 }
@@ -307,6 +323,8 @@ body {
     height: 100%;
 }
 
+
+
 .pecas-container .fundo-peca {
     z-index: 0;
     top: -5%;
@@ -355,6 +373,24 @@ body {
     cursor: pointer;
     animation: pulse 1s infinite;
 }
+
+
+@keyframes coletar {
+      0% {
+         transform: translateY(0); 
+      }
+
+      50% {
+         top: 5%;
+         left: 70%;
+      }
+
+      100% {
+         transform: translateY(-20px); 
+         top: 1200px;
+        
+      }
+    }
 
 @keyframes pulse {
     0% {

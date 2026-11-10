@@ -9,6 +9,8 @@ const placar2 = document.getElementById('placar_2');
 const placar3 = document.getElementById('placar_3');
 const placar4 = document.getElementById('placar_4');
 
+const chaveVerde = document.querySelector('.chaveVerde');
+
 const area = document.getElementById('areaacessavel');
 let arrastando = false;
 let ultimoAngulo = 0;
@@ -118,7 +120,10 @@ if (engrena && area) {
         //alert(`Senha digitada: ${senha.join('')}`);
         cont = 0;
         if (senha.join('') === '6742') {
-            alert('Senha correta! Parabéns!');
+            chaveVerde.style.opacity = '1';
+            chaveVerde.classList.add('coletar');
+            
+            //alert('Senha correta! Parabéns!');
         }
         senha = [];
     }
