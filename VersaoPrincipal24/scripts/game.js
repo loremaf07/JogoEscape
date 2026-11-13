@@ -4,6 +4,8 @@ const scenarioImages = scenarios.map((scenario) => scenario.querySelector("img")
 const previousButton = document.querySelector(".scenario-previous");
 const nextButton = document.querySelector(".scenario-next");
 let currentScenario = 0;
+let abrir = true;
+
 
 function showScenario(index) {
     currentScenario = Math.max(0, Math.min(index, scenarios.length - 1));
@@ -84,9 +86,27 @@ function ativarPuzzle() {
     alert("Funcionou!");
 }
 
+function inventario() {
+  if (abrir) {
+      abrirInventario();
+      abrir = false;
+  } else {
+      fecharInventario();
+      abrir = true;
+  }
+}
+
 function abrirInventario() {
     const inventario = document.querySelector(".inventario_aberto");
+    inventario.classList.remove("fecharinventario");
     inventario.classList.add("abrindoinventario");
+}
+
+function fecharInventario() {
+    const inventario = document.querySelector(".inventario_aberto");
+    inventario.classList.add("fecharinventario");
+    inventario.classList.remove("abririnventario");
+    
 }
 
 showScenario(0);

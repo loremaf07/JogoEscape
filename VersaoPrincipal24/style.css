@@ -223,7 +223,16 @@ body {
 }
 
 .abrindoinventario {
-    animation: abrindoinventario 2s ease-in-out forwards;
+    animation: abrindoinventario 0.5s ease-in-out forwards;
+}
+
+.fecharinventario {
+    top: 10%;
+    left: 15%;
+    width: 690px;
+    height: 500px;
+    border-radius: 40px;
+    animation: fecharinventario 0.5s ease-in-out forwards;
 }
 
 .slot {
@@ -504,6 +513,17 @@ body {
         height: 500px;
         border-radius: 40px;
 
+    }
+    
+}
+
+@keyframes fecharinventario {
+    100% {
+        top: 90%;
+        left: 100%;
+        width: 2px;
+        height: 2px;
+        border-radius: 0px;
     }
     
 }
