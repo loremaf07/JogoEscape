@@ -5,6 +5,7 @@ const telapreta = document.getElementById("preto");
 
 const chave = document.getElementById("chavePrata");
 
+
 const botoes = [
   document.getElementById("btn1"),
   document.getElementById("btn2"),
@@ -78,7 +79,7 @@ function lidarComClique(indice, event) {
         setTimeout(() => {
           chave.classList.add('coletar');
           //telapreta.style.opacity = "100%";
-        
+          guardarItem("chavePrata");
         }, 600);
         //chave.classList.add('coletar');
         //telapreta.style.opacity = "100%";

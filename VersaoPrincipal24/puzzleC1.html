@@ -79,7 +79,19 @@
 </head>
 <body>
     <div class="game">
-        
+        <div class="inventario_aberto" aria-label="Inventário do jogo">
+            <div class="inventario-cabecalho">Inventário</div>
+            <div class="inventario-grade">
+                <div class="slot"><img id="chaveAguai" class="item" src="images/chaveAgua.png" alt=""></div>
+                <div class="slot"><img id="chaveVerdei" class="item" src="images/chaveVerde.png" alt=""></div>
+                <div class="slot"><img id="chavePratai" class="item" src="images/chavePrata.png" alt=""></div>
+                <div class="slot"><img id="chaveFogoi" class="item" src="images/chaveFogo.png" alt=""></div>
+                <div class="slot"></div>
+                <div class="slot"></div>
+                <div class="slot"></div>
+                <div class="slot"></div>
+            </div>
+        </div>
         <img id="cenario1" src="images/puzzleC1/puzzleC1_background (1).png" alt="Imagem do jogo" oncontextmenu="return false;">
         
         <div id="preto" class="conquista">
@@ -101,7 +113,9 @@
         </div>
 
         <button class="scenario-button backgame" type="button" aria-label="Cenário anterior" onclick="backGame()">&#8249;</button>
+        <button class="inventario" type="button" aria-label="Inventário" onclick="inventario()">&#128736;</button>
     </div>
+    <script src="scripts/inventario.js"></script>
     <script src="scripts/puzzleC1.js"></script>
 </body>
 </html>

@@ -122,7 +122,7 @@ if (engrena && area) {
         if (senha.join('') === '6742') {
             chaveVerde.style.opacity = '1';
             chaveVerde.classList.add('coletar');
-            
+            guardarItem("chaveVerde");
             //alert('Senha correta! Parabéns!');
         }
         senha = [];

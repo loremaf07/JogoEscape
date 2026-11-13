@@ -8,7 +8,19 @@
 </head>
 <body>
     <div class="game">
-        
+        <div class="inventario_aberto" aria-label="Inventário do jogo">
+            <div class="inventario-cabecalho">Inventário</div>
+            <div class="inventario-grade">
+                <div class="slot"><img id="chaveAguai" class="item" src="images/chaveAgua.png" alt=""></div>
+                <div class="slot"><img id="chaveVerdei" class="item" src="images/chaveVerde.png" alt=""></div>
+                <div class="slot"><img id="chavePratai" class="item" src="images/chavePrata.png" alt=""></div>
+                <div class="slot"><img id="chaveFogoi" class="item" src="images/chaveFogo.png" alt=""></div>
+                <div class="slot"></div>
+                <div class="slot"></div>
+                <div class="slot"></div>
+                <div class="slot"></div>
+        </div>
+        </div>
         <img id="cenario1" src="images/puzzleA1/puzzleA1_background.png" alt="Imagem do jogo" oncontextmenu="return false;">
         <img id="sticker1" class="sticker" aria-hidden="true" src="images/puzzleA1/puzzleA1_sticker1.png" alt="postit-'nao esquecer o olho'" oncontextmenu="return false;">
         <img style="top: 56%; left: 10%; width: 200px; height:200px ; z-index: 0;" id="sticker2" class="sticker" aria-hidden="true" src="images/puzzleA1/puzzleA1_sticker3.png" alt="" oncontextmenu="return false;">
@@ -17,7 +29,9 @@
         <img style="top: 24%; left: 48%; width: 300px; height: 300px;z-index: 0;" id="sticker5" class="sticker" aria-hidden="true" src="images/puzzleA1/puzzleA1_sticker6.png" alt="" oncontextmenu="return false;">
         <img style="top: 60%; left: 67%; width: 200px; height: 200px;z-index: 1;" id="sticker6" class="sticker" aria-hidden="true" src="images/puzzleA1/puzzleA1_sticker2.png" alt="" oncontextmenu="return false;">
         <button class="scenario-button backgame" type="button" aria-label="Cenário anterior" onclick="backGame()">&#8249;</button>
+        <button class="inventario" type="button" aria-label="Inventário" onclick="inventario()">&#128736;</button>
     </div>
+    <script src="scripts/inventario.js"></script>
     <script src="scripts/puzzles.js"></script>
 </body>
 </html>
