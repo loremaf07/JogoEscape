@@ -57,11 +57,14 @@ function darZoomNoObjeto(x, y, c) {
     alf = "D";
   } 
 
-  if (c != 4) {
+  if (c < 4) {
     endere = "puzzle" + alf + "1.html";
-  } else {
+  } else if (c == 4) {
     endere = "salaChaves.html";
     c=3;
+  } else if (c == 5) {
+    endere = "cadeiraampliada.html";
+    c=0;
   }
   
     // Define o ponto focal do zoom nas coordenadas exatas passadas pelo botão
