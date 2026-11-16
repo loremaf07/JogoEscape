@@ -5,13 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogo</title>
     <link rel="stylesheet" href="inicio.css">
+    <style>
+        .page-links {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 18px;
+            z-index: 1;
+        }
+
+        .nav-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 18px;
+            border-radius: 999px;
+            text-decoration: none;
+            background: rgba(79, 56, 35, 0.7);
+            border: 2px solid rgba(240, 212, 152, 0.7);
+            color: #f8efdb;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            background: rgba(122, 83, 52, 0.8);
+        }
+    </style>
 </head>
 <body>
     <div class="inicio">
         <div class="titulo"><h1>Bem-vindo ao Jogo!</h1></div>
         <button class="start-button" onclick="startGame()">Iniciar Jogo</button>
-        <button class="story-button" onclick="window.location.href='story.html'">Ver História</button>
-        
+        <div class="page-links">
+            <a href="site.html" class="nav-link">Site do Jogo</a>
+            <a href="story.html" class="nav-link">História</a>
+        </div>
 
         <div class="social-links">
             <a href="https://github.com/loremaf07/JogoEscape" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
