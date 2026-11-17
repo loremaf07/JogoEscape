@@ -68,6 +68,9 @@ function darZoomNoObjeto(x, y, c) {
   } else if (c == 6) {
     endere = "comoda.html";
     c=2;
+  } else if (c == 7) {
+    endere = "puzzleB2.html";
+    c=1;
   }
   
     // Define o ponto focal do zoom nas coordenadas exatas passadas pelo botão
