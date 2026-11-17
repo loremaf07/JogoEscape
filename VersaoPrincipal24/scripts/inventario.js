@@ -2,7 +2,8 @@ const indicesItens = {
   chaveAgua: 0,
   chaveVerde: 1,
   chavePrata: 2,
-  chaveFogo: 3
+  chaveFogo: 3,
+  alicate: 4,
 };
 
 let inventarioEstaAberto = false;
@@ -53,46 +54,35 @@ function atualizarInventario() {
   });
 }
 
+// Função de desenvolvimento: execute limparInventario() no console.
+function limparInventario() {
+  localStorage.setItem("inventario", JSON.stringify(Array(8).fill(0)));
+  atualizarInventario();
+  console.log("Inventário limpo.");
+}
+
+// limparInventario()
+
 function inicializarInventario() {
   const game = document.querySelector(".game");
-  let painel = document.querySelector(".inventario_aberto");
+  const painel = document.querySelector(".inventario_aberto");
 
   if (!painel) {
-    painel = document.createElement("div");
-    painel.className = "inventario_aberto";
-    painel.setAttribute("aria-label", "Inventário do jogo");
-
-    const cabecalho = document.createElement("div");
-    cabecalho.className = "inventario-cabecalho";
-    cabecalho.textContent = "Inventário";
-    painel.appendChild(cabecalho);
-
-    const grade = document.createElement("div");
-    grade.className = "inventario-grade";
-    const imagens = [
-      "images/chaveAgua.png",
-      "images/chaveVerde.png",
-      "images/chavePrata.png",
-      "images/chaveFogo.png"
-    ];
-
-    for (let indice = 0; indice < 8; indice++) {
-      const slot = document.createElement("div");
-      slot.className = "slot";
-
-      if (imagens[indice]) {
-        const imagem = document.createElement("img");
-        imagem.className = "item";
-        imagem.src = imagens[indice];
-        imagem.alt = "";
-        slot.appendChild(imagem);
-      }
-
-      grade.appendChild(slot);
-    }
-
-    painel.appendChild(grade);
-    game.prepend(painel);
+    game?.insertAdjacentHTML("afterbegin", `
+      <div class="inventario_aberto" aria-label="Inventário do jogo">
+        <div class="inventario-cabecalho">Inventário</div>
+        <div class="inventario-grade">
+          <div class="slot"><img class="item" src="images/chaveAgua.png" alt=""></div>
+          <div class="slot"><img class="item" src="images/chaveVerde.png" alt=""></div>
+          <div class="slot"><img class="item" src="images/chavePrata.png" alt=""></div>
+          <div class="slot"><img class="item" src="images/chaveFogo.png" alt=""></div>
+          <div class="slot"><img class="item" src="images/alicate.png" alt=""></div>
+          <div class="slot"></div>
+          <div class="slot"></div>
+          <div class="slot"></div>
+          </div>
+      </div>
+    `);
   }
 
   atualizarInventario();

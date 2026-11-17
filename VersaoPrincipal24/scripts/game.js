@@ -65,6 +65,9 @@ function darZoomNoObjeto(x, y, c) {
   } else if (c == 5) {
     endere = "cadeiraampliada.html";
     c=0;
+  } else if (c == 6) {
+    endere = "comoda.html";
+    c=2;
   }
   
     // Define o ponto focal do zoom nas coordenadas exatas passadas pelo botão

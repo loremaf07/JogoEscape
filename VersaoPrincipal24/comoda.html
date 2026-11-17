@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sala da comoda</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game">     
+        <img style="width: 100%; height: 100%;" id="comoda" src="images/comodajogo.png" alt="Imagem do jogo" oncontextmenu="return false;">
+        
+        <img src="images/gavetajogo.png" class="gaveta" onclick="abrirGaveta()" alt="">
+        <button class="scenario-button backgame" type="button" aria-label="Cenário anterior" onclick="backGame()">&#8249;</button>
+        <button class="inventario" type="button" aria-label="Inventário" onclick="inventario()">&#128736;</button>
+
+    </div> 
+    <script src="scripts/inventario.js"></script>
+    <script src="scripts/comoda.js"></script>
+</body>
+</html>

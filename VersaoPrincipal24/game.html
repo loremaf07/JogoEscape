@@ -14,6 +14,7 @@
             <div class="scenario-slide">
                 <img id="cenario1" src="images/cenario1.png" alt="Imagem do jogo">
                 <div style="top: 66%; left: 19%; width: 250px; height: 200px;" class="scenario-square puzzle_A1" aria-hidden="true" onclick="darZoomNoObjeto('15%', '99%', 5)"></div>        
+                <img style="top: 86%; left: 16%; width: 40px; height: 40px;" src="images/alicate.png" alt="alicate" id="alicate" class="objeto" oncontextmenu="return false;">
                 <div class="scenario-square puzzle_A1" aria-hidden="true" onclick="darZoomNoObjeto('0%', '5%', 0)"></div>
             </div>
             <!--B-->
@@ -26,6 +27,7 @@
                 <img id="cenario3" src="images/cenario3.png" alt="Imagem do jogo">
                 <img id="moldura" src="images/molduramontanha.png" alt="Imagem do jogo">
                 <img onClick="derrubar()" class="flores"  id="flores" src="images/flores.png" alt="Imagem do jogo">
+                <div style="top: 63%; left: 71%; width: 280px; height: 200px;" class="scenario-square puzzle_C1" aria-hidden="true" onclick="darZoomNoObjeto('99%', '84%', 6)"></div>
                 <div class="scenario-square puzzle_C1" aria-hidden="true" onclick="darZoomNoObjeto('55%', '70%', 2)"></div>
             </div>
             <!--D-->
@@ -39,19 +41,7 @@
         <button class="scenario-button scenario-next" type="button" aria-label="Próximo cenário">&#8250;</button>
         <button class="scenario-button backgame" type="button" aria-label="Cenário anterior" onclick="voltarIndex()">&#8249;</button>
 
-        <div class="inventario_aberto" aria-label="Inventário do jogo">
-            <div class="inventario-cabecalho">Inventário</div>
-            <div class="inventario-grade">
-                <div class="slot"><img id="chaveAguai" class="item" src="images/chaveAgua.png" alt=""></div>
-                <div class="slot"><img id="chaveVerdei" class="item" src="images/chaveVerde.png" alt=""></div>
-                <div class="slot"><img id="chavePratai" class="item" src="images/chavePrata.png" alt=""></div>
-                <div class="slot"><img id="chaveFogoi" class="item" src="images/chaveFogo.png" alt=""></div>
-                <div class="slot"><img id="alicatei" class="item" src="images/alicate.png" alt=""></div>
-                <div class="slot"></div>
-                <div class="slot"></div>
-                <div class="slot"></div>
-            </div>
-        </div>
+        
         <button class="inventario" type="button" aria-label="Inventário" onclick="inventario()">&#128736;</button>
         
         

@@ -261,7 +261,9 @@ body {
 }
 
 .backgame {
-    top: 5%;
+    top: 0%;
+    left: 0px;
+    transform: none;
     width: 65px;
     height: 75px;
     border-radius: 0% 0% 60% 0%;
@@ -273,6 +275,38 @@ body {
     width: 40px;
     height: 40px;
     background-color: #1687ff6b;
+}
+
+#cadeiracenario {
+    scale: 2.2;
+    margin-top: -25%;
+}
+
+.objeto {
+    position: absolute;
+    z-index: 1;
+    width: 150px;
+    height: 100px;
+    top: 65%;
+    left: 40%;
+}
+
+#alicate {
+    width: 120px;
+    height: 80px;
+    top: 59%;
+    left: 22%;
+    transform: rotate(-20deg);
+}
+
+.gaveta {
+    position: absolute;
+    z-index: 1;
+    width: 774px;
+    height: 190px;
+    top: 49%;
+    left: 11.5%;
+    transition: all 1s ease-in-out;
 }
 
 .engrenagem {
