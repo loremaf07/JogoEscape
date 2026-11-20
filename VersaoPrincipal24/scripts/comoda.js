@@ -1,6 +1,13 @@
+const inventarioAtual = lerInventario();
+const papel = document.getElementById("dicasteclado");
+
 // Volta para a página anterior
 function backGame() {
     window.history.back();
+}
+
+if (inventarioAtual[indicesItens.teclado] === 1) {
+    papel.style.display = 'none';
 }
 
 function abrirGaveta() {
@@ -10,8 +17,7 @@ function abrirGaveta() {
 }
 
 function pegarPapel() {
-    const papel = document.getElementById("dicasteclado");
-
     papel.style.zIndex = 3
     papel.classList.add("coletar");
+    guardarItem("teclado");
 }

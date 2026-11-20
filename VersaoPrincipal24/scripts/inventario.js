@@ -4,6 +4,7 @@ const indicesItens = {
   chavePrata: 2,
   chaveFogo: 3,
   alicate: 4,
+  teclado: 5
 };
 
 let inventarioEstaAberto = false;
@@ -77,7 +78,7 @@ function inicializarInventario() {
           <div class="slot"><img class="item" src="images/chavePrata.png" alt=""></div>
           <div class="slot"><img class="item" src="images/chaveFogo.png" alt=""></div>
           <div class="slot"><img class="item" src="images/alicate.png" alt=""></div>
-          <div class="slot"></div>
+          <div class="slot"><img class="item" src="images/puzzleB2/teclasdica.webp" onclick="ampliar()" alt=""></div>
           <div class="slot"></div>
           <div class="slot"></div>
           </div>
