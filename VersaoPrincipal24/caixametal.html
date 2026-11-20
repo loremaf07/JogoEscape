@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sala da Caixa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game">     
+        <img style="width: 100%; height: 100%;" id="comoda" src="images/caixademetal.webp" alt="Imagem do jogo" oncontextmenu="return false;">
+        
+        
+        
+        <h1 class="dicacenario">Um alicate pode resolver!</h1>
+
+        
+        <img id="correnteesquerda" src="images/corrente.png" class="corrente correnteesquerda" onclick="cortarCorrente()" alt="">
+        <img id="correntedireita" src="images/corrente.png" class="corrente correntedireita" onclick="cortarCorrente()" alt="">
+
+        <button class="scenario-button backgame" type="button" aria-label="Cenário anterior" onclick="backGame()">&#8249;</button>
+        <button class="inventario" type="button" aria-label="Inventário" onclick="inventario()">&#128736;</button>
+        <button class="dicas"  type="button" aria-label="Dicas" onclick="dicas()">&#128161;</button>
+    </div> 
+    <script src="scripts/inventario.js"></script>
+    <script src="scripts/corrente.js"></script>
+    <script src="scripts/dicas.js"></script>
+
+</body>
+</html>

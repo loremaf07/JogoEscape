@@ -7,6 +7,7 @@ const indicesItens = {
   teclado: 5
 };
 
+
 let inventarioEstaAberto = false;
 
 function lerInventario() {
@@ -73,12 +74,12 @@ function inicializarInventario() {
       <div class="inventario_aberto" aria-label="Inventário do jogo">
         <div class="inventario-cabecalho">Inventário</div>
         <div class="inventario-grade">
-          <div class="slot"><img class="item" src="images/chaveAgua.png" alt=""></div>
+          <div class="slot"><img class="item" src="images/chaveAgua.png" alt=""></div> 
           <div class="slot"><img class="item" src="images/chaveVerde.png" alt=""></div>
           <div class="slot"><img class="item" src="images/chavePrata.png" alt=""></div>
           <div class="slot"><img class="item" src="images/chaveFogo.png" alt=""></div>
           <div class="slot"><img class="item" src="images/alicate.png" alt=""></div>
-          <div class="slot"><img class="item" src="images/puzzleB2/teclasdica.webp" onclick="ampliar()" alt=""></div>
+          <div class="slot"><img class="item" src="images/puzzleB2/teclasdica.webp" onclick="ampliar(5)" alt=""></div>
           <div class="slot"></div>
           <div class="slot"></div>
           </div>
@@ -97,6 +98,25 @@ function inventario() {
       fecharInventario();
       inventarioEstaAberto = false;
   }
+}
+
+function ampliar(imagem) {
+  const game = document.querySelector(".game");
+  //const painel = document.querySelector(".inventario_aberto");
+
+  game?.insertAdjacentHTML("afterbegin", `
+    <div class="ver">
+            <img class="objetoampliado" src="images/puzzleB2/teclasdica.webp" onclick="sumir()" alt="papel">
+      </div>
+    `
+  )
+
+}
+
+function sumir() {
+    const imagem = document.querySelector(".ver");
+
+    imagem.remove()
 }
 
 function abrirInventario() {

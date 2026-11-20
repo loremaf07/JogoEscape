@@ -4,7 +4,7 @@ function backGame() {
 }
 
 let etapa = 0;
-const sequencia = ["a", "g", "x", "n", "p", "y", "c", "k", " "];
+const sequencia = ["a", "g", "x", "n", "o", "y", "c", "k", " "];
 
 document.addEventListener("keydown", function(event) {
     if (event.repeat) return;

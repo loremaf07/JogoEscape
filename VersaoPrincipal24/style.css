@@ -330,6 +330,31 @@ body {
     left: 40%;
 }
 
+.ver {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; 
+    height: 100vh;
+    z-index: 18;
+
+    /* Mágica do Flexbox para centralizar tudo que estiver dentro */
+    display: flex;
+    justify-content: center; /* Centraliza na horizontal */
+    align-items: center;     /* Centraliza na vertical */
+    
+    /* Opcional: cria um fundo escuro transparente atrás da imagem ampliada */
+    background-color: rgba(0, 0, 0, 0.7); 
+}
+
+.objetoampliado {
+    
+    width: 647.5px;
+    height: 282.5px;
+    
+    
+}
+
 #dicasteclado {
     width: 380px;
     height: 167px;
@@ -356,6 +381,24 @@ body {
     top: 49%;
     left: 11.5%;
     transition: all 1s ease-in-out;
+}
+
+.corrente {
+    position: absolute;
+    z-index: 2;
+    width: 774px;
+    height: 190px;
+    top: 29%;
+    left: 11.5%;
+    
+}
+
+.correnteesquerda {
+    clip-path: inset(0 19% 0 0);
+}
+
+.correntedireita {
+    clip-path: inset(0 0 0 81%);
 }
 
 .fios {
