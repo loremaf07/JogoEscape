@@ -7,7 +7,7 @@ const indicesItens = {
   teclado: 5
 };
 
-
+let usou = false;
 let inventarioEstaAberto = false;
 
 function lerInventario() {
@@ -78,7 +78,7 @@ function inicializarInventario() {
           <div class="slot"><img class="item" src="images/chaveVerde.png" alt=""></div>
           <div class="slot"><img class="item" src="images/chavePrata.png" alt=""></div>
           <div class="slot"><img class="item" src="images/chaveFogo.png" alt=""></div>
-          <div class="slot"><img class="item" src="images/alicate.png" alt=""></div>
+          <div class="slot"><img class="item" src="images/alicate.png" onclick="usarAlicate()" alt=""></div>
           <div class="slot"><img class="item" src="images/puzzleB2/teclasdica.webp" onclick="ampliar(5)" alt=""></div>
           <div class="slot"></div>
           <div class="slot"></div>
@@ -88,6 +88,42 @@ function inicializarInventario() {
   }
 
   atualizarInventario();
+}
+
+function moverAlicate(event) {
+  const imagemCursor = document.getElementById("alicate");
+  if (imagemCursor) {
+    imagemCursor.style.left = `${event.clientX}px`;
+    imagemCursor.style.top = `${event.clientY}px`;
+  }
+}
+
+function usarAlicate(event) {
+  const game = document.querySelector(".game");
+
+  if (!usou) {
+    // 1. Cria a imagem APENAS se ainda não estiver em uso
+    game?.insertAdjacentHTML("afterbegin", `
+      <img src="images/alicate.png" alt="alicate" id="alicate" class="ferramenta" oncontextmenu="return false;">
+    `);
+
+    // 2. Já posiciona no local exato do clique (se 'event' existir) para não piscar no canto da tela
+    if (event) {
+      moverAlicate(event);
+    }
+
+    // 3. Conecta a função moverAlicate que você já tinha criado
+    document.addEventListener("mousemove", moverAlicate);
+    usou = true;
+
+  } else {
+    // 4. Remove a imagem e desliga o rastreamento do mouse
+    const imagemCursor = document.getElementById("alicate");
+    imagemCursor?.remove();
+    
+    document.removeEventListener("mousemove", moverAlicate);
+    usou = false;
+  }
 }
 
 function inventario() {
@@ -103,7 +139,7 @@ function inventario() {
 function ampliar(imagem) {
   const game = document.querySelector(".game");
   //const painel = document.querySelector(".inventario_aberto");
-
+  
   game?.insertAdjacentHTML("afterbegin", `
     <div class="ver">
             <img class="objetoampliado" src="images/puzzleB2/teclasdica.webp" onclick="sumir()" alt="papel">

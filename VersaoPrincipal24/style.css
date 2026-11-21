@@ -330,6 +330,21 @@ body {
     left: 40%;
 }
 
+.ferramenta {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 150px; /* Ajuste o tamanho desejado */
+    height: 100px;
+    z-index: 9999; /* Garante que fique por cima de tudo */
+    
+    /* MUITO IMPORTANTE: faz o mouse "atravessar" a imagem para clicar nos objetos atrás */
+    pointer-events: none; 
+    
+    /* Opcional: centraliza a imagem exatamente na ponta da seta do mouse */
+    transform: translate(-50%, -50%); 
+}
+
 .ver {
     position: fixed;
     top: 0;
@@ -390,16 +405,20 @@ body {
     height: 190px;
     top: 29%;
     left: 11.5%;
-    
+    transition: transform 0.6s cubic-bezier(0.5, 0, 0.75, 0); 
 }
 
 .correnteesquerda {
     clip-path: inset(0 19% 0 0);
+    transform-origin: left top; 
 }
 
 .correntedireita {
-    clip-path: inset(0 0 0 81%);
+    clip-path: inset(0 0 0 80.5%);
+    transform-origin: right top; 
 }
+
+
 
 .fios {
     position: absolute;
@@ -620,6 +639,41 @@ body {
     border-radius: 5px;
     cursor: pointer;
     animation: pulse 1s infinite;
+}
+
+
+.cair-esquerda {
+  /* 1ª animação: cai em 0.6s e para no final (forwards)
+     2ª animação: começa após 0.6s e balança para sempre (infinite alternate) */
+  animation: 
+    quedarEsquerda 1s ease-in forwards,
+    balancarEsquerda 1.5s ease-in-out 1s infinite alternate;
+}
+
+.cair-direita {
+  animation: 
+    quedarDireita 1.6s ease-in forwards,
+    balancarDireita 1.5s ease-in-out 1.6s infinite alternate;
+}
+
+/* Queda inicial */
+@keyframes quedarEsquerda {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(65deg); }
+}
+@keyframes quedarDireita {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-65deg); }
+}
+
+/* Balanço infinito lá embaixo */
+@keyframes balancarEsquerda {
+  from { transform: rotate(65deg); }
+  to   { transform: rotate(62deg); }
+}
+@keyframes balancarDireita {
+  from { transform: rotate(-65deg); }
+  to   { transform: rotate(-52deg); }
 }
 
 
