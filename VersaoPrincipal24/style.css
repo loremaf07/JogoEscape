@@ -356,14 +356,14 @@ body {
     /* Mágica do Flexbox para centralizar tudo que estiver dentro */
     display: flex;
     justify-content: center; /* Centraliza na horizontal */
-    align-items: center;     /* Centraliza na vertical */
+    align-items: top;     /* Centraliza na vertical */
     
     /* Opcional: cria um fundo escuro transparente atrás da imagem ampliada */
     background-color: rgba(0, 0, 0, 0.7); 
 }
 
 .objetoampliado {
-    
+    margin-top: 280px;
     width: 647.5px;
     height: 282.5px;
     
@@ -641,6 +641,15 @@ body {
     animation: pulse 1s infinite;
 }
 
+#btnvoa { 
+    transition: all 1s ease-in-out;
+}
+
+.botaogirador {
+    rotate: 20deg;
+    animation: btnPuxado 0.1s infinite alternate;
+}
+
 
 .cair-esquerda {
   /* 1ª animação: cai em 0.6s e para no final (forwards)
@@ -655,6 +664,7 @@ body {
     quedarDireita 1.6s ease-in forwards,
     balancarDireita 1.5s ease-in-out 1.6s infinite alternate;
 }
+
 
 /* Queda inicial */
 @keyframes quedarEsquerda {
@@ -761,5 +771,15 @@ body {
     100% {
         top: -100%;
         opacity: 0;
+    }
+}
+
+
+@keyframes btnPuxado {
+    0% {
+        rotate: 20deg;
+    }
+    100% {
+        rotate: -20deg;
     }
 }

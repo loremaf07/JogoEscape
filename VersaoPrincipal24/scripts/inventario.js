@@ -4,7 +4,8 @@ const indicesItens = {
   chavePrata: 2,
   chaveFogo: 3,
   alicate: 4,
-  teclado: 5
+  teclado: 5,
+  pergaminho: 6
 };
 
 let usou = false;
@@ -52,6 +53,7 @@ function atualizarInventario() {
     const imagem = slot.querySelector("img");
     if (imagem) {
       imagem.style.opacity = inventario[indice] === 1 ? "1" : "0";
+      imagem.style.pointerEvents = inventario[indice] === 1 ? "auto" : "none";
     }
   });
 }
@@ -80,7 +82,7 @@ function inicializarInventario() {
           <div class="slot"><img class="item" src="images/chaveFogo.png" alt=""></div>
           <div class="slot"><img class="item" src="images/alicate.png" onclick="usarAlicate()" alt=""></div>
           <div class="slot"><img class="item" src="images/puzzleB2/teclasdica.webp" onclick="ampliar(5)" alt=""></div>
-          <div class="slot"></div>
+          <div class="slot"><img class="item" src="images/pergaminho.webp" onclick="ampliar(6)" alt=""></div>
           <div class="slot"></div>
           </div>
       </div>
@@ -140,12 +142,22 @@ function ampliar(imagem) {
   const game = document.querySelector(".game");
   //const painel = document.querySelector(".inventario_aberto");
   
-  game?.insertAdjacentHTML("afterbegin", `
+  if (imagem == 5) {
+    game?.insertAdjacentHTML("afterbegin", `
     <div class="ver">
             <img class="objetoampliado" src="images/puzzleB2/teclasdica.webp" onclick="sumir()" alt="papel">
       </div>
     `
-  )
+    )
+  } else if (imagem == 6) {
+    game?.insertAdjacentHTML("afterbegin", `
+    <div class="ver">
+            <img class="objetoampliado" src="images/previa.png" onclick="sumir()" alt="papel">
+      </div>
+    `
+    )
+  }
+  
 
 }
 
