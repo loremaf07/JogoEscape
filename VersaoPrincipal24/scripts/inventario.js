@@ -5,8 +5,11 @@ const indicesItens = {
   chaveFogo: 3,
   alicate: 4,
   teclado: 5,
-  pergaminho: 6
+  pergaminho: 6,
+  ima: 7
 };
+
+const capacidadeInventario = 12;
 
 let usou = false;
 let inventarioEstaAberto = false;
@@ -14,7 +17,7 @@ let inventarioEstaAberto = false;
 function lerInventario() {
   const dadosSalvos = localStorage.getItem("inventario");
   if (!dadosSalvos) {
-    return Array(8).fill(0);
+    return Array(capacidadeInventario).fill(0);
   }
 
   let inventarioSalvo;
@@ -22,15 +25,15 @@ function lerInventario() {
     inventarioSalvo = JSON.parse(dadosSalvos);
   } catch (erro) {
     console.warn("O inventário salvo estava inválido e foi reiniciado.", erro);
-    return Array(8).fill(0);
+    return Array(capacidadeInventario).fill(0);
   }
 
   if (!Array.isArray(inventarioSalvo)) {
     console.warn("O inventário salvo não é um array e foi reiniciado.");
-    return Array(8).fill(0);
+    return Array(capacidadeInventario).fill(0);
   }
 
-  return Array.from({ length: 8 }, (_, indice) =>
+  return Array.from({ length: capacidadeInventario }, (_, indice) =>
     inventarioSalvo[indice] === 1 ? 1 : 0
   );
 }
@@ -60,7 +63,7 @@ function atualizarInventario() {
 
 // Função de desenvolvimento: execute limparInventario() no console.
 function limparInventario() {
-  localStorage.setItem("inventario", JSON.stringify(Array(8).fill(0)));
+  localStorage.setItem("inventario", JSON.stringify(Array(capacidadeInventario).fill(0)));
   atualizarInventario();
   console.log("Inventário limpo.");
 }
@@ -83,6 +86,10 @@ function inicializarInventario() {
           <div class="slot"><img class="item" src="images/alicate.png" onclick="usarAlicate()" alt=""></div>
           <div class="slot"><img class="item" src="images/puzzleB2/teclasdica.webp" onclick="ampliar(5)" alt=""></div>
           <div class="slot"><img class="item" src="images/pergaminho.webp" onclick="ampliar(6)" alt=""></div>
+          <div class="slot"><img class="item" src="images/ima.webp" onclick="" alt=""></div>
+          <div class="slot"></div>
+          <div class="slot"></div>
+          <div class="slot"></div>
           <div class="slot"></div>
           </div>
       </div>

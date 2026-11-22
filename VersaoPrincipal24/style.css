@@ -255,10 +255,10 @@ body {
 .inventario-grade {
     display: grid;
     grid-template-columns: repeat(4, minmax(120px, 1fr));
-    grid-template-rows: repeat(2, 150px);
+    grid-template-rows: repeat(3, 120px);
     gap: 16px;
     width: 100%;
-    height: 100%;
+    height: auto;
 }
 
 .abrindoinventario {
@@ -308,6 +308,7 @@ body {
     border-radius: 0% 0% 60% 0%;
 }
 
+/*opacity: 0*/
 .scenario-square {
     position: absolute;
     z-index: 1;
@@ -319,6 +320,12 @@ body {
 #cadeiracenario {
     scale: 2.2;
     margin-top: -25%;
+}
+
+.rotatoria {
+    
+    
+
 }
 
 .objeto {
@@ -466,7 +473,7 @@ body {
     top: 60%;
     right: 5%;
     width: 100%;
-    height: 100%px;
+    height: 100%;
     
 
 }
@@ -781,5 +788,11 @@ body {
     }
     100% {
         rotate: -20deg;
+    }
+}
+
+@keyframes rotacao {
+    100% {
+        rotate: 3600deg;
     }
 }
