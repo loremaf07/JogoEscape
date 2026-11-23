@@ -6,6 +6,8 @@ let quadrados = [
     ["peca13", "peca14", "peca15", "peca16"]
 ];
 
+const chaveAzul = document.querySelector(".chaveAzul");
+
 // Volta para a página anterior
 function backGame() {
     window.history.back();
@@ -189,7 +191,9 @@ function verifyPos(peca) {
     }
     // Verifica se o puzzle foi resolvido
     if (verificarVitoria()) {
-        alert("Parabéns! Você resolveu o puzzle!");
+        chaveAzul.style.opacity = '1';
+        chaveAzul.classList.add('coletar');
+        guardarItem("chaveAgua");
     }
     return afirma;
 }
@@ -272,6 +276,7 @@ function verificarVitoria() {
             }
         }
     }
+    
 
     return true;
 }

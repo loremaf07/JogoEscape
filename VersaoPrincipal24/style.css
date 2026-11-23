@@ -322,11 +322,7 @@ body {
     margin-top: -25%;
 }
 
-.rotatoria {
-    
-    
 
-}
 
 .objeto {
     position: absolute;
@@ -514,6 +510,17 @@ body {
       top: 25%;
       left: 50%;
       
+}
+
+.chaveAzul {
+      position: absolute;
+      width: 100px;
+      height: 150px;
+      z-index: 2;
+      opacity: 0;
+      top: 25%;
+      left: 50%;
+      pointer-events: none;
 }
 
 .coletar {
