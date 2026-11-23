@@ -9,7 +9,18 @@
 <body>
     <div class="game">     
         <img style="width: 100%; height: 100%;" id="cenario1" src="images/Chaves.png" alt="Imagem do jogo" oncontextmenu="return false;">
-    
+
+        <button class="fechadura" type="button" data-chave="chaveVerde" aria-label="Abrir fechadura verde com a chave verde" aria-describedby="mensagem-chaves"></button>
+        <button class="fechadura" type="button" data-chave="chavePrata" aria-label="Abrir fechadura prateada com a chave prata" aria-describedby="mensagem-chaves"></button>
+        <button class="fechadura" type="button" data-chave="chaveFogo" aria-label="Abrir fechadura vermelha com a chave de fogo" aria-describedby="mensagem-chaves"></button>
+        <button class="fechadura" type="button" data-chave="chaveAgua" aria-label="Abrir fechadura azul com a chave de água" aria-describedby="mensagem-chaves"></button>
+        <p class="mensagem-chaves" id="mensagem-chaves" role="status" aria-live="polite"></p>
+        <section class="vitoria-chaves" id="vitoria-chaves" role="dialog" aria-modal="true" aria-labelledby="titulo-vitoria" hidden>
+            <h1 id="titulo-vitoria">Você venceu!</h1>
+            <p>As quatro fechaduras foram abertas.</p>
+            <button type="button" onclick="window.location.href='index.html'">Voltar ao início</button>
+        </section>
+
         <button class="scenario-button backgame" type="button" aria-label="Cenário anterior" onclick="backGame()">&#8249;</button>
         <button class="inventario" type="button" aria-label="Inventário" onclick="inventario()">&#128736;</button>
 

@@ -50,6 +50,23 @@ function guardarItem(item) {
   atualizarInventario();
 }
 
+function consumirItem(item) {
+  const indice = indicesItens[item];
+  if (indice === undefined) {
+    throw new Error(`Item desconhecido: ${item}`);
+  }
+
+  const inventario = lerInventario();
+  if (inventario[indice] !== 1) {
+    return false;
+  }
+
+  inventario[indice] = 0;
+  localStorage.setItem("inventario", JSON.stringify(inventario));
+  atualizarInventario();
+  return true;
+}
+
 function atualizarInventario() {
   const inventario = lerInventario();
   document.querySelectorAll(".inventario-grade .slot").forEach((slot, indice) => {

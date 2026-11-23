@@ -523,6 +523,158 @@ body {
       pointer-events: none;
 }
 
+.fechadura {
+    position: absolute;
+    top: 49%;
+    z-index: 2;
+    width: 19%;
+    height: 35%;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.fechadura:nth-of-type(1) {
+    left: 10%;
+}
+
+.fechadura:nth-of-type(2) {
+    left: 37%;
+}
+
+.fechadura:nth-of-type(3) {
+    left: 63%;
+}
+
+.fechadura:nth-of-type(4) {
+    left: 90%;
+}
+
+.fechadura:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 3px;
+}
+
+.fechadura:disabled {
+    cursor: default;
+}
+
+.fechadura-destravando::before,
+.fechadura-aberta::before {
+    position: absolute;
+    inset: 12%;
+    border: 5px solid rgba(133, 255, 164, 0.95);
+    border-radius: 50%;
+    box-shadow: 0 0 24px rgba(89, 255, 128, 0.9), inset 0 0 20px rgba(89, 255, 128, 0.5);
+    content: "";
+}
+
+.fechadura-destravando::before {
+    animation: brilho-fechadura 0.9s ease-in-out;
+}
+
+.fechadura-aberta::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: grid;
+    width: 34px;
+    height: 34px;
+    place-items: center;
+    border-radius: 50%;
+    background: rgba(15, 74, 34, 0.9);
+    color: #ffffff;
+    content: "✓";
+    font-size: 24px;
+    font-weight: 700;
+    transform: translate(-50%, -50%);
+}
+
+.chave-encaixando {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    width: 46%;
+    height: 46%;
+    object-fit: contain;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    animation: encaixar-chave 0.9s ease-in forwards;
+}
+
+.mensagem-chaves {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    z-index: 12;
+    margin: 0;
+    padding: 10px 18px;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.85);
+    color: #ffffff;
+    font-size: 18px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, 12px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.mensagem-chaves-visivel {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+.vitoria-chaves {
+    display: flex;
+}
+
+.vitoria-chaves[hidden] {
+    display: none;
+}
+
+.vitoria-chaves {
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: rgba(0, 0, 0, 0.88);
+    color: #ffffff;
+    text-align: center;
+    animation: aparecer-vitoria 0.6s ease-out;
+}
+
+.vitoria-chaves h1,
+.vitoria-chaves p {
+    margin: 0;
+}
+
+.vitoria-chaves h1 {
+    color: #a4ffb5;
+    font-size: 48px;
+}
+
+.vitoria-chaves p {
+    font-size: 22px;
+}
+
+.vitoria-chaves button {
+    margin-top: 12px;
+    padding: 12px 20px;
+    border: 0;
+    border-radius: 8px;
+    background: #2e8b47;
+    color: #ffffff;
+    font-size: 18px;
+    cursor: pointer;
+}
+
 .coletar {
       animation: coletar 3s ease-in-out forwards;
 }
@@ -801,5 +953,40 @@ body {
 @keyframes rotacao {
     100% {
         rotate: 3600deg;
+    }
+}
+
+@keyframes encaixar-chave {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -75%) rotate(-35deg) scale(1.35);
+    }
+    25% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) rotate(0) scale(0.25);
+    }
+}
+
+@keyframes brilho-fechadura {
+    0%,
+    100% {
+        opacity: 0.35;
+        transform: scale(0.85);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.08) rotate(12deg);
+    }
+}
+
+@keyframes aparecer-vitoria {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }
