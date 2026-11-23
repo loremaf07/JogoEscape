@@ -19,7 +19,7 @@ Para executar este projeto sem problemas de desempenho, certifique-se de que sua
 Liste as principais linguagens, frameworks e ferramentas do projeto:
 
 Linguagem: JavaScript
-Versionamento:** Git & Bitbucket
+Versionamento:Git & Bitbucket
 
 🤝 Como Contribuir
 
