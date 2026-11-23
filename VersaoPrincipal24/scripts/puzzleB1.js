@@ -187,8 +187,93 @@ function verifyPos(peca) {
             afirma = true
         }
     }
-
+    // Verifica se o puzzle foi resolvido
+    if (verificarVitoria()) {
+        alert("Parabéns! Você resolveu o puzzle!");
+    }
     return afirma;
+}
+
+
+function resolverPuzzle() {
+
+    const matrizCorreta = [
+        ["peca1", "peca2", "peca3", "peca4"],
+        ["peca5", "peca6", "peca7", "peca8"],
+        ["peca9", "peca10", "peca11", "peca12"],
+        ["peca13", "peca14", "peca15", "peca16"]
+    ];
+
+    // Guarda as posições visuais atuais de cada célula
+    const posicoes = {};
+
+    for (let linha = 0; linha < 4; linha++) {
+        for (let coluna = 0; coluna < 4; coluna++) {
+
+            const id = "peca" + (linha * 4 + coluna + 1);
+            const elemento = document.getElementById(id);
+
+            if (elemento) {
+                posicoes[id] = {
+                    top: elemento.style.marginTop,
+                    left: elemento.style.marginLeft
+                };
+            }
+        }
+    }
+
+    // Para cada posição da matriz correta
+    for (let linha = 0; linha < 4; linha++) {
+        for (let coluna = 0; coluna < 4; coluna++) {
+
+            const idCorreto = matrizCorreta[linha][coluna];
+            const peca = document.getElementById(idCorreto);
+
+            if (peca) {
+
+                // A peça desliza até a posição correta
+                peca.style.transition = "margin 5s ease";
+
+                peca.style.marginTop =
+                    posicoes["peca" + (linha * 4 + coluna + 1)].top;
+
+                peca.style.marginLeft =
+                    posicoes["peca" + (linha * 4 + coluna + 1)].left;
+            }
+        }
+    }
+
+    // Atualiza a matriz depois da animação
+    setTimeout(() => {
+
+        quadrados = matrizCorreta.map(linha => [...linha]);
+
+        console.log("Puzzle resolvido:");
+        console.table(quadrados);
+
+        alert("Puzzle resolvido!");
+
+    }, 5000);
+}
+
+function verificarVitoria() {
+    const matrizCorreta = [
+        ["peca1", "peca2", "peca3", "peca4"],
+        ["peca5", "peca6", "peca7", "peca8"],
+        ["peca9", "peca10", "peca11", "peca12"],
+        ["peca13", "peca14", "peca15", "peca16"]
+    ];
+
+    for (let linha = 0; linha < quadrados.length; linha++) {
+        for (let coluna = 0; coluna < quadrados[linha].length; coluna++) {
+
+            if (quadrados[linha][coluna] !== matrizCorreta[linha][coluna]) {
+                return false;
+            }
+        }
+    }
+
+    return true;
 }
 
 // Eventos de clique
