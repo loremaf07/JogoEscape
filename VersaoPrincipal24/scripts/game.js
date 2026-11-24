@@ -127,6 +127,9 @@ function darZoomNoObjeto(x, y, c) {
   } else if (c == 8) {
     endere = "caixametal.html";
     c=0;
+  } else if (c == 9) {
+    endere = "aquario.html";
+    c = 2;
   }
 
   sessionStorage.setItem(zoomReturnStorageKey, JSON.stringify({

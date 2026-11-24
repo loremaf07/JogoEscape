@@ -12,6 +12,7 @@ const indicesItens = {
 const capacidadeInventario = 12;
 
 let usou = false;
+let imaEstaEmUso = false;
 let inventarioEstaAberto = false;
 
 function lerInventario() {
@@ -100,10 +101,10 @@ function inicializarInventario() {
           <div class="slot"><img class="item" src="images/chaveVerde.png" alt=""></div>
           <div class="slot"><img class="item" src="images/chavePrata.png" alt=""></div>
           <div class="slot"><img class="item" src="images/chaveFogo.png" alt=""></div>
-          <div class="slot"><img class="item" src="images/alicate.png" onclick="usarAlicate()" alt=""></div>
+          <div class="slot"><img class="item" src="images/alicate.png" onclick="usarAlicate(event)" alt=""></div>
           <div class="slot"><img class="item" src="images/puzzleB2/teclasdica.webp" onclick="ampliar(5)" alt=""></div>
           <div class="slot"><img class="item" src="images/pergaminho.webp" onclick="ampliar(6)" alt=""></div>
-          <div class="slot"><img class="item" src="images/ima.webp" onclick="" alt=""></div>
+          <div class="slot"><img class="item" src="images/ima.webp" onclick="usarIma(event)" alt=""></div>
           <div class="slot"></div>
           <div class="slot"></div>
           <div class="slot"></div>
@@ -121,6 +122,73 @@ function moverAlicate(event) {
   if (imagemCursor) {
     imagemCursor.style.left = `${event.clientX}px`;
     imagemCursor.style.top = `${event.clientY}px`;
+  }
+}
+
+function usarIma(event) {
+  const game = document.querySelector(".game");
+
+  if (!imaEstaEmUso) {
+    game?.insertAdjacentHTML("afterbegin", `
+      <img src="images/ima.webp" alt="ímã" id="ima-cursor" class="ferramenta" oncontextmenu="return false;">
+    `);
+
+    if (event) {
+      moverIma(event);
+    }
+
+    document.addEventListener("mousemove", moverIma);
+    imaEstaEmUso = true;
+  } else {
+    document.getElementById("ima-cursor")?.remove();
+    document.removeEventListener("mousemove", moverIma);
+    imaEstaEmUso = false;
+  }
+}
+
+function moverIma(event) {
+  const imagemCursor = document.getElementById("ima-cursor");
+  if (imagemCursor) {
+    imagemCursor.style.left = `${event.clientX}px`;
+    imagemCursor.style.top = `${event.clientY}px`;
+    atrairChaveFogo(event);
+  }
+}
+
+function atrairChaveFogo(event) {
+  const chave = document.getElementById("chave-fogo-aquario");
+  const vidro = document.getElementById("aquario-vidro");
+  const jogo = chave?.closest(".game");
+  if (!chave || !vidro || !jogo || chave.dataset.coletada === "true") {
+    return;
+  }
+
+  const chaveBounds = chave.getBoundingClientRect();
+  const diferencaX = event.clientX - (chaveBounds.left + chaveBounds.width / 2);
+  const diferencaY = event.clientY - (chaveBounds.top + chaveBounds.height / 2);
+  const distancia = Math.hypot(diferencaX, diferencaY);
+  if (distancia === 0 || distancia > 260) {
+    return;
+  }
+
+  chave.classList.add("chave-fogo-atraida");
+  const passo = Math.min(distancia, Math.max(12, distancia * 0.25));
+  const deslocamentoX = (diferencaX / distancia) * passo;
+  const deslocamentoY = (diferencaY / distancia) * passo;
+  const jogoBounds = jogo.getBoundingClientRect();
+  const proximaEsquerda = chaveBounds.left - jogoBounds.left - jogo.clientLeft + deslocamentoX;
+  const proximoTopo = chaveBounds.top - jogoBounds.top - jogo.clientTop + deslocamentoY;
+  chave.style.left = `${proximaEsquerda}px`;
+  chave.style.top = `${proximoTopo}px`;
+
+  const vidroBounds = vidro.getBoundingClientRect();
+  const limiteSuperiorVidro = vidroBounds.top + vidroBounds.height * 0.29;
+  if (chaveBounds.bottom + deslocamentoY <= limiteSuperiorVidro) {
+    chave.dataset.coletada = "true";
+    //chave.classList.add("chave-fogo-coletada");
+    chave.classList.add("coletar");
+    guardarItem("chaveFogo");
+    window.setTimeout(() => chave.remove(), 350);
   }
 }
 
@@ -205,3 +273,8 @@ function fecharInventario() {
 }
 
 inicializarInventario();
+
+const chaveFogoAquario = document.getElementById("chave-fogo-aquario");
+if (chaveFogoAquario && lerInventario()[indicesItens.chaveFogo] === 1) {
+  chaveFogoAquario.remove();
+}

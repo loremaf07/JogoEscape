@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aquario</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game">    
+         
+        <img class="aquario-camada aquario-fundo" id="aquario-fundo" src="images/fundoaquario.png" alt="Fundo do aquário" oncontextmenu="return false;">
+        <img class="aquario-camada aquario-vidro" id="aquario-vidro" src="images/vidroaquario.png" alt="Vidro do aquário" oncontextmenu="return false;">
+        <img class="aquario-camada aquario-frente" id="aquario-frente" src="images/frenteaquario.png" alt="Frente do aquário" oncontextmenu="return false;">
+        
+        
+        <img style="z-index: 0; top: 66%; left: 16%; width: 80px; height: 100px;" src="images/chaveFogo.png" alt="Chave de fogo" id="chave-fogo-aquario" class="objeto" oncontextmenu="return false;">
+
+        <h1 class="dicacenario">Não precisa de Chave!</h1>
+
+        
+        
+        <button class="scenario-button backgame" type="button" aria-label="Cenário anterior" onclick="backGame()">&#8249;</button>
+        <button class="inventario" type="button" aria-label="Inventário" onclick="inventario()">&#128736;</button>
+        <button class="dicas"  type="button" aria-label="Dicas" onclick="dicas()">&#128161;</button>
+    </div> 
+    <script src="scripts/inventario.js"></script>
+    <script src="scripts/comoda.js"></script>
+    <script src="scripts/dicas.js"></script>
+
+</body>
+</html>
