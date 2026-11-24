@@ -345,6 +345,7 @@ body {
     z-index: 1;
     width: 40px;
     height: 40px;
+    opacity: 0;
     background-color: #1687ff6b;
 }
 
